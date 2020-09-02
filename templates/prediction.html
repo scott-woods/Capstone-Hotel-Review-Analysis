@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <h1>Hotel Review Rating Prediction</h1>
+    <p></p>
+    <p>
+        Based on your written review, I think you would've rated the Hotel as a...
+    </p>
+    <p align="center" style="font-size:80px; font-weight:bold">
+        {{ estRating }}/5
+    </p>
+    <p>
+        Overall, I think that your opinion of the Hotel is: <b>{{ estSentiment }}</b>
+    </p>
+    <p>
+        Estimated Margin of Error (Mean Absolute Error): <b>{{ mae }}</b>
+        Sentiment Accuracy: <b>{{ accuracy }}%</b>
+    </p>
+    <p>
+        <form action="home" method="post">
+            <button type="submit" class="btn btn-outline-info">
+                Back
+            </button>
+        </form>
+    </p>
+</div>
+{% endblock content %}

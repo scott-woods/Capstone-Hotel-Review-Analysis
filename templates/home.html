@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Hotel Review Rating Prediction</h1>
+    <div style="font-size:20px">
+        This Program uses Random Forest Regression to estimate the
+        Rating a Customer may give their Hotel Stay based on the Sentiment of their written Review.
+        It also uses Random Forest Classification to determine whether the Review is Positive, Negative, or Neutral.
+    </div>
+    <p></p>
+    <form action="{{ url_for('prediction') }}" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="content-section">
+            <p>
+                Please enter a short (1-3 Sentence) Review of your Hotel Stay:
+            </p>
+            <p>
+                {{ form.reviewText(cols="75", rows="6") }}
+            </p>
+            <p>
+                Please enter a short (5 words or less) Title that summarizes your Review:
+            </p>
+            <p>
+                {{ form.reviewTitle(cols="50", rows="1") }}
+            </p>
+            <p align="center">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </p>
+        </div>
+    </form>
+{% endblock content %}

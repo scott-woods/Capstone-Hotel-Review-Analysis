@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hotel Review Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  </head>
+  <body>
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div class="login-box">
+      <h1>WGU Hotel Review Analysis</h1>
+      <div class="textbox">
+        <i class="fas fa-user"></i>
+        {{ form.username() }}
+      </div>
+
+      <div class="textbox">
+        <i class="fas fa-lock"></i>
+        {{ form.password() }}
+      </div>
+
+      {% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <div class="notification is-danger">
+        {{ messages[0] }}
+      </div>
+      {% endif %}
+      {% endwith %}
+
+      <div>
+        {{ form.submit(class="btn") }}
+      </div>
+    </div>
+  </form>
+  </body>
+</html>
